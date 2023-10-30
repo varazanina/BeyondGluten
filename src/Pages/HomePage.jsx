@@ -1,7 +1,9 @@
-
+import { Navigation } from "./Components/Navigation"
 
 export const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div>
+      <Navigation/>
+    </div>
   )
 }
