@@ -12,15 +12,15 @@ export const Navigation = () => {
   return (
     <nav className="navigation">
       <NavLink to="/">
-        <img className={`icon ${location.pathname === '/' ? 'active' : ''}`} src={ Home } alt="Home link" />
-        <img className="filledIcon" src={ HoverHome } alt="Home link" />
+        <img className={`icon ${location.pathname === '/' ? 'hidden' : ''}`} src={ Home } alt="Home link" />
+        <img className={`filledIcon ${location.pathname === '/' ? 'displayed' : ''}`} src={ HoverHome } alt="Home link" />
       </NavLink>
       <NavLink to="/create">
         <img src={ Create } alt="Create a recipe" />
       </NavLink>
       <NavLink to="/saved">
-        <img className={`icon ${location.pathname === '/saved' ? 'active' : ''}`} src={ Saved } alt="Saved recipes" />
-        <img className="filledIcon" src={ HoverSaved } alt="Saved recipes" />
+        <img className={`icon ${location.pathname === '/saved' ? 'hidden' : ''}`} src={ Saved } alt="Saved recipes" />
+        <img className={`filledIcon ${location.pathname === '/saved' ? 'displayed' : ''}`} src={ HoverSaved } alt="Saved recipes" />
       </NavLink>
     </nav>
   )

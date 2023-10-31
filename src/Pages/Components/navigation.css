@@ -13,3 +13,11 @@
 .filledIcon {
     display: none;
 }
+
+.hidden {
+    display: none;
+}
+
+.displayed {
+    display: block;
+}
