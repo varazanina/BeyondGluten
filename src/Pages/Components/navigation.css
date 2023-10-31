@@ -1,0 +1,23 @@
+.navigation {
+    position: fixed;
+    bottom: 0;
+    background-color: var(--primary);
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2vh;
+    z-index: 1;
+}
+
+.filledIcon {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.displayed {
+    display: block;
+}
