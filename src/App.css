@@ -1,0 +1,29 @@
+body.wine {
+    --black: #2F0F0F;
+    --primary: #823038;
+    --secondary: #F4E1E3;
+}
+
+body.ketchup {
+    --black: #3C1515;
+    --primary: #CC2527;
+    --secondary: #FEF2F4;
+}
+
+body.mustard {
+    --black: #322811;
+    --primary: #DB9B06;
+    --secondary: #FFF0CF;
+}
+
+body.spinach {
+    --black: #0E3116;
+    --primary: #204628;
+    --secondary: #E3F2E6;
+}
+
+body.blueberry {
+    --black: #0C192C;
+    --primary: #192F50;
+    --secondary: #E3E6F2;
+}
