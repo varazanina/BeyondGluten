@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//craeted by Marta
 export const CreatePage = () => {
   const [name, setName] = useState("");
   const [picture, setPicture] = useState("");
@@ -9,7 +10,7 @@ export const CreatePage = () => {
   const [steps, setSteps] = useState([]);
   const navigate = useNavigate();
 
-  //add new Ingredients by ChatGPT
+  //add Ingredients by ChatGPT
   const addIngredient = () => {
     const newIngredient = {
       name: "",
@@ -42,6 +43,7 @@ export const CreatePage = () => {
     event.preventDefault();
     console.log("Submit");
 
+    //Construction of the post in the database
     const newPost = {
       name: name,
       picture: picture,
@@ -52,6 +54,7 @@ export const CreatePage = () => {
     };
     console.log(newPost);
 
+    //link to firebase
     const url =
       "https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes.json";
 
@@ -60,6 +63,7 @@ export const CreatePage = () => {
       body: JSON.stringify(newPost),
     });
 
+    //Got to homepage after posting
     if (response.ok) {
       navigate("/");
     } else {
@@ -70,6 +74,7 @@ export const CreatePage = () => {
   return (
     <section className="page">
       <h1>Create New Post</h1>
+      {/* The create form */}
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input
