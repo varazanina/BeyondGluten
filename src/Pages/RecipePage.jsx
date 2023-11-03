@@ -18,7 +18,7 @@ export const RecipePage = () => {
             setRecipe(data);
         }
         getRecipe();
-    },);
+    },[url]);
 
     const [ingredients, setIngredients] = useState([]);
     useEffect (() => {
@@ -29,14 +29,14 @@ export const RecipePage = () => {
             setIngredients(ingredientsArray);
         }
         getIngredient();
-    },);
+    },[ingr]);
 
   return (
     <div>
         <Link to="/">
             <img src={GoBack} alt="Go to the previous page" />
         </Link>
-        <img src={recipe.picture} alt="Recipe image" />
+        <img className="picture" src={recipe.picture} alt="Recipe image" />
         <h4>{recipe.username}</h4>
         <h1>{recipe.name}</h1>
         <p>{recipe.description}</p>
