@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './Create.css';
 
-//craeted by Marta
+//created by Marta
 export const CreatePage = () => {
   const [name, setName] = useState("");
   const [picture, setPicture] = useState("");
@@ -78,36 +79,36 @@ export const CreatePage = () => {
 
   return (
     <section className="page">
-      <h1>Create New Post</h1>
+      <h1 className="bigheading">Create a recipe</h1>
       {/* The create form */}
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input
+        <label className="heading">Name of your dish*</label>
+        <input className="textbox"
           type="text"
           placeholder="Type name of the dish here"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
-        <label>Picture:</label>
-        <input
+        <label className="heading">Image</label>
+        <input className="textbox"
           type="url"
           placeholder="Paste picture url"
           value={picture}
           onChange={(event) => setPicture(event.target.value)}
         />
         <img src={picture} alt="" />
-        <label>Description</label>
-        <input
+        <label className="heading">Description*</label>
+        <input className="textbox"
           type="text"
           placeholder="Tell us more about the dish"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
         {/*add new Ingredients by ChatGPT*/}
-        <label>Ingredients</label>
+        <label className="heading">Ingredients</label>
         {ingredients.map((ingredient, index) => (
           <div key={index}>
-            <input
+            <input className="ingredients"
               type="text"
               placeholder="Ingredient name"
               value={ingredient.name}
@@ -115,7 +116,7 @@ export const CreatePage = () => {
                 handleIngredientChange(index, "name", e.target.value)
               }
             />
-            <input
+            <input className="quantity"
               type="text"
               placeholder="Quantity"
               value={ingredient.quantity}
@@ -125,14 +126,14 @@ export const CreatePage = () => {
             />
           </div>
         ))}
-        <button type="button" onClick={addIngredient}>
-          Add Ingredient
+        <button type="button" className="secondbutton" onClick={addIngredient}>
+          Add +
         </button>
         {/*add new steps by Marta*/}
-        <label>Steps</label>
+        <label className="heading">Steps</label>
         {steps.map((step, index) => (
           <div key={index}>
-            <input
+            <input className="steps"
               type="text"
               placeholder="Step"
               value={step.name}
@@ -140,8 +141,8 @@ export const CreatePage = () => {
             />
           </div>
         ))}
-        <button type="button" onClick={addStep}>
-          Add Step
+        <button type="button" className="secondbutton" onClick={addStep}>
+          Add +
         </button>
         <button type="submit" className="primarybutton">
           Create

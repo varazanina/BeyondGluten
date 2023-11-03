@@ -1,0 +1,116 @@
+/* done by Petya */
+form {
+    overflow: auto; 
+    max-height: 75vh;
+}
+
+.textbox {
+display: flex;
+width: 343px;
+height: 40px;
+padding: 0px 15px;
+align-items: center;
+gap: 8px;
+
+border-radius: 16px;
+background: var(--base-light-grey, #F7F7F7);
+margin-top: 8px;
+margin-bottom: 32px;
+border: none;
+}
+
+.bigheading {
+color: var(--wine-black, #2F0F0F);
+/* Page Header */
+font-family: Nunito, sans-serif;
+font-size: 22px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-align: center;
+margin-bottom: 40px;
+}
+
+.heading {
+display: block;
+color: var(--wine-black, #2F0F0F);
+/* body text/medium */
+font-family: Inter, sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.ingredients {
+width: 256px;
+height: 40px;
+padding: 0px 15px;
+align-items: center;
+gap: 8px;
+margin-right: 8px;
+margin-top: 8px;
+
+border-radius: 16px;
+background: var(--base-light-grey, #F7F7F7);
+border: none;
+}
+
+.quantity {
+width: 79px;
+height: 40px;
+padding: 0px 8px;
+align-items: center;
+gap: 8px;
+
+border-radius: 16px;
+background: var(--base-light-grey, #F7F7F7);
+border: none;
+}
+
+.steps {
+width: 343px;
+height: 40px;
+padding: 0px 15px;
+align-items: center;
+gap: 8px;
+margin-right: 8px;
+margin-top: 8px;
+
+border-radius: 16px;
+background: var(--base-light-grey, #F7F7F7);
+border: none;
+}
+
+.secondbutton {
+display: flex;
+width: 98px;
+padding: 8px 16px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+
+border: none;
+border-radius: 16px;
+background: var(--wine-secondary, #F4E1E3);
+margin-bottom: 32px;
+margin-top: 8px;
+
+color: var(--wine-primary, #823038);
+text-align: center;
+
+/* body text/big bold */
+font-family: Inter, sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.primarybutton {
+    width: 100% !important;
+}
+
+.secondarybutton {
+    width: 100% !important;
+}
