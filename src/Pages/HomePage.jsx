@@ -1,5 +1,4 @@
 import { Navigation } from "./Components/Navigation"
-import { Themes } from "./Components/Themes"
 import { RecipeCard } from "./Components/RecipeCard";
 import { useState, useEffect } from "react";
 
@@ -19,7 +18,6 @@ export const HomePage = () => {
   return (
     <div>
       <Navigation/>
-      <Themes/>
       <h1>Following</h1>
       <ul>
             {recipes.map(recipe => (
