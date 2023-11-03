@@ -10,7 +10,8 @@ export const RecipeCard = ({ recipe }) => {
       onClick={() => navigate(`/recipes/${recipe.id}`)}
     >
       <div className="top-bar">
-        <h4>{recipe.username}</h4>
+        <p>{recipe.username}</p>
+        <img src="../src/assets/hamburger.svg" alt="hamburger menu" />
       </div>
       <img className="picture" src={recipe.picture} alt="image" />
       <div className="post-content">
