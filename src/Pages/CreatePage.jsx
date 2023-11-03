@@ -55,7 +55,7 @@ export const CreatePage = () => {
       description: description,
       ingredients: ingredients,
       steps: steps,
-      username: "glutenHater",
+      username: "glutenhater",
     };
     console.log(newPost);
 
