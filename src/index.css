@@ -74,6 +74,7 @@ padding: 8px 16px;
 justify-content: center;
 align-items: center;
 gap: 8px;
+margin: 20px auto ;
 
 border-radius: 16px;
 border: 2px solid var(--wine-primary, #823038);
@@ -93,4 +94,4 @@ line-height: normal;
 /* the one on home page and recipe page */
 .picture {
     width: 100vw;
-}
+
