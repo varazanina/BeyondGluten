@@ -33,7 +33,7 @@ export const CreatePage = () => {
     navigate("/");*/
 
     if (response.ok) {
-      navigate("/posts");
+      navigate("/");
     } else {
       console.log("Sth went wrong");
     }
