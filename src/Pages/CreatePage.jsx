@@ -10,6 +10,11 @@ export const CreatePage = () => {
   const [steps, setSteps] = useState([]);
   const navigate = useNavigate();
 
+  //cancel btn by ChatGPT
+  const handleCancel = () => {
+    navigate(-1); // This navigates back one step in the browser history
+  };
+
   //add Ingredients by ChatGPT
   const addIngredient = () => {
     const newIngredient = {
@@ -139,6 +144,9 @@ export const CreatePage = () => {
           Add Step
         </button>
         <button type="submit">Create</button>
+        <button type="button" onClick={handleCancel}>
+          Cancel
+        </button>
       </form>
     </section>
   );
