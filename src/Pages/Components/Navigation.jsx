@@ -1,10 +1,10 @@
 import "./navigation.css"
 import { NavLink, useLocation } from "react-router-dom"
-import Home from "../../assets/Home.png"
-import Create from "../../assets/Create.png"
-import Saved from "../../assets/Saved.png"
-import HoverHome from "../../assets/hoverHome.png"
-import HoverSaved from "../../assets/hoverSaved.png"
+import Home from "../../assets/Home.svg"
+import Create from "../../assets/Create.svg"
+import Saved from "../../assets/Saved.svg"
+import HoverHome from "../../assets/hoverHome.svg"
+import HoverSaved from "../../assets/hoverSaved.svg"
 
 export const Navigation = () => {
   const location = useLocation();
