@@ -4,6 +4,7 @@ import { HomePage } from './Pages/HomePage'
 import { CreatePage } from './Pages/CreatePage'
 import { SavedPage } from './Pages/SavedPage'
 import { ProfilePage } from './Pages/ProfilePage'
+import { RecipePage } from './Pages/RecipePage'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path='/create' element={<CreatePage/>}/>
         <Route path='/saved' element={<SavedPage/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
+        <Route path='/recipes/:recipeId' element={<RecipePage/>}/>
       </Routes>
     </>
   )

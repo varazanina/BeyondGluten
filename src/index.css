@@ -91,4 +91,7 @@ font-weight: 600;
 line-height: normal;
 }
 
+/* the one on home page and recipe page */
+.picture {
+    width: 100vw;
 
