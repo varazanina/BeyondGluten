@@ -13,3 +13,79 @@
     --primary: #823038;
     --secondary: #F4E1E3;
 }
+
+.primarybutton {
+    border-radius: 16px;
+    background: var(--wine-primary, #823038);
+    display: flex;
+    width: 167px;
+    height: 36px;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: none;
+
+    /* body text/big bold */
+    color: var(--base-white, #FFF);
+    text-align: center;
+
+    font-family:  'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    margin-bottom: 20px;
+}
+
+.secondarybutton {
+    border-radius: 16px;
+    background: var(--wine-primary, #823038);
+    display: flex;
+    width: 167px;
+    height: 36px;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: none;
+
+    border-radius: 16px;
+    background: var(--wine-secondary, #F4E1E3);
+
+/* body text/big bold */
+color: var(--wine-primary, #823038);
+text-align: center;
+
+font-family:  'Inter', sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+
+margin-bottom: 20px ;
+}
+
+.editbutton {
+display: flex;
+width: 343px;
+padding: 8px 16px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+
+border-radius: 16px;
+border: 2px solid var(--wine-primary, #823038);
+background: var(--base-white, #FFF);
+
+color: var(--wine-primary, #823038);
+text-align: center;
+
+/* body text/big bold */
+font-family:  'Inter', sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
