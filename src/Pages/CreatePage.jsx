@@ -55,7 +55,7 @@ export const CreatePage = () => {
       description: description,
       ingredients: ingredients,
       steps: steps,
-      username: "glutenHater",
+      username: "glutenhater",
     };
     console.log(newPost);
 
@@ -143,8 +143,14 @@ export const CreatePage = () => {
         <button type="button" onClick={addStep}>
           Add Step
         </button>
-        <button type="submit">Create</button>
-        <button type="button" onClick={handleCancel}>
+        <button type="submit" className="primarybutton">
+          Create
+        </button>
+        <button
+          type="button"
+          onClick={handleCancel}
+          className="secondarybutton"
+        >
           Cancel
         </button>
       </form>
