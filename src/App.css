@@ -27,3 +27,29 @@ body.blueberry {
     --primary: #192F50;
     --secondary: #E3E6F2;
 }
+
+/*_____________________________________________________________*/
+
+.ProfilePic {
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .ProfileText {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 20px;
+    
+  }
