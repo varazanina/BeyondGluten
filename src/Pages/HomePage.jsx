@@ -25,7 +25,7 @@ export const HomePage = () => {
             {recipes.map(recipe => (
                 <RecipeCard recipe={recipe} recipes={recipes} setRecipes={setRecipes} key={recipe.id} />
             ))}
-        </ul>
+      </ul>
     </div>
   )
 }
