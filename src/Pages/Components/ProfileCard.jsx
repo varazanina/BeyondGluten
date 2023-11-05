@@ -1,11 +1,13 @@
 import "./recipeCard.css"
 
-
+//Created by Vivian, using the Recipe Picture+Name Values from Firebase to display here
 export default function ProfileCard ({recipe}) {
   return (
-    <div className="article">
-        <img className="picture" src={recipe?.picture} alt="image"></img>
-        <h1>{recipe?.name}</h1>
+    <div >
+      <div className="recipecardProfile">
+        <img className="pictureGrid" src={recipe?.picture} alt="image"></img>
+        <p className="dishName">{recipe?.name}</p>
+      </div>
 
     </div>
   )

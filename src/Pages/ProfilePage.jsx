@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom"
-import { Navigation } from "./Components/Navigation"
-import { Themes } from "./Components/Themes"
-import ProfileBio from "./Components/ProfileBio"
-import ProfilePostedRecipes from "./Components/ProfilePostedRecipes"
+import { Navigation } from "./Components/Navigation";
+import { Themes } from "./Components/Themes";
+import ProfileBio from "./Components/ProfileBio";
+import ProfilePostedRecipes from "./Components/ProfilePostedRecipes";
+import './Components/Profile.css';
 
-
+//created by Vivian
 export const ProfilePage = () => {
   return (
     <div>
@@ -12,20 +13,37 @@ export const ProfilePage = () => {
       <Themes/>
       <h1>Profile Page</h1>
       <div>
-        <ProfileBio 
-        />
+        <ProfileBio />  
       </div>
       <div>
         <h3>Posted Recipes</h3>
         <div>
-        <ProfilePostedRecipes/>
+         <ProfilePostedRecipes/>
         </div>
         
       </div>
       <div>
-        
+        Empty Text
+        empty text
+      </div>
+      <div>
+        Empty Text
+        empty text
+      </div>
+      <div>
+        Empty Text
+        empty text
+      </div>
+      <div>
+        Empty Text
+        empty text
+      </div>
+      <div>
+        Empty Text
+        empty text
       </div>
     </div>
     
   )
 }
+//calling ProfileBio and ProfilePostedRecipes Sections
