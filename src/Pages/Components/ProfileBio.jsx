@@ -7,7 +7,7 @@ export default function ProfileBio () {
       
       
         <section className="ProfileText">
-          <h4>@GlutenHater</h4>
+          <h2>@GlutenHater</h2>
           <p> Alex Karen</p>
         </section>
         </div>

@@ -8,7 +8,7 @@ import './Components/Profile.css';
 //created by Vivian
 export const ProfilePage = () => {
   return (
-    <div>
+    <div >
       <Navigation/>
       <Themes/>
       <h1>Profile Page</h1>
@@ -16,32 +16,20 @@ export const ProfilePage = () => {
         <ProfileBio />  
       </div>
       <div>
-        <h3>Posted Recipes</h3>
+        <h3 className="ProfileHeaders2">Posted Recipes</h3>
         <div>
          <ProfilePostedRecipes/>
         </div>
         
       </div>
       <div>
-        Empty Text
-        empty text
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       </div>
-      <div>
-        Empty Text
-        empty text
-      </div>
-      <div>
-        Empty Text
-        empty text
-      </div>
-      <div>
-        Empty Text
-        empty text
-      </div>
-      <div>
-        Empty Text
-        empty text
-      </div>
+      
     </div>
     
   )
