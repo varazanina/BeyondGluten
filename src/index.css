@@ -14,6 +14,10 @@
   --secondary: #f4e1e3;
 }
 
+.general_margin {
+    margin-top: 5rem;
+}
+
 .primarybutton {
   border-radius: 16px;
   background: var(--wine-primary, #823038);
@@ -68,26 +72,28 @@
 }
 
 .editbutton {
-  display: flex;
-  width: 343px;
-  padding: 8px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+display: flex;
+width: 343px;
+padding: 8px 16px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+margin: 20px auto ;
 
-  border-radius: 16px;
-  border: 2px solid var(--wine-primary, #823038);
-  background: var(--base-white, #fff);
+border-radius: 16px;
+border: 2px solid var(--wine-primary, #823038);
+background: var(--base-white, #FFF);
 
-  color: var(--wine-primary, #823038);
-  text-align: center;
+color: var(--wine-primary, #823038);
+text-align: center;
 
-  /* body text/big bold */
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+/* body text/big bold */
+font-family:  'Inter', sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+
 }
 
 /* the one on home page and recipe page */
