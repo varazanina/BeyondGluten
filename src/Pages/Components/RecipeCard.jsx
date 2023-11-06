@@ -11,7 +11,16 @@ export const RecipeCard = ({ recipe }) => {
     >
       <div className="top-bar">
         <p>{recipe.username}</p>
-        <img src="../src/assets/hamburger.svg" alt="hamburger menu" />
+        <div className="dropdown">
+          <button onClick="myFunction()" className="dropbtn">
+            <img src="../src/assets/hamburger.svg" alt="hamburger menu" />
+          </button>
+          <div id="myDropdown" className="dropdown-content">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
       </div>
       <img className="picture" src={recipe.picture} alt="image" />
       <div className="post-content">
