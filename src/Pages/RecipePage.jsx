@@ -46,7 +46,7 @@ export const RecipePage = () => {
   return (
     <div>
         <Link to="/">
-            <img src={GoBack} alt="Go to the previous page" />
+            <img src={GoBack} alt="Go to the previous page" className="back-btn" />
         </Link>
         <img className="picture" src={recipe.picture} alt="Recipe image" />
         <h4>{recipe.username}</h4>

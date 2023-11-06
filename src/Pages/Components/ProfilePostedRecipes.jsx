@@ -1,4 +1,4 @@
-import ProfileCard from "./ProfileCard";
+import ProfileRecipeCard from "./ProfileRecipeCard";
 import { useState, useEffect } from "react";
 
 //created by Nina, fetching Recipe Object and its key values from Firebase and displaying them in a list
@@ -18,9 +18,9 @@ export default function ProfilePostedRecipes  ()  {
   return (
     <div>
       
-      <div className="RecipeGrid">
+      <div className="RecipeGrid" onClick={() => navigate(`/recipes/${recipe.id}`)}>
             {recipes.map(recipe => (
-                <ProfileCard recipe={recipe} recipes={recipes} setRecipes={setRecipes} key={recipe.id} />
+                <ProfileRecipeCard recipe={recipe} recipes={recipes} setRecipes={setRecipes} key={recipe.id} />
             ))}
         </div>
     </div>

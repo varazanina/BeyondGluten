@@ -28,4 +28,9 @@ body.blueberry {
     --secondary: #E3E6F2;
 }
 
-/*_____________________________________________________________*/
+
+
+/*filter created here: https://codepen.io/sosuke/pen/Pjoqqp to change color of img*/
+.back-btn {
+    filter: invert(92%) sepia(12%) saturate(4863%) hue-rotate(324deg) brightness(91%) contrast(98%);
+  }
