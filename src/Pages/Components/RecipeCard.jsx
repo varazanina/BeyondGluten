@@ -32,8 +32,13 @@ export const RecipeCard = ({ recipe }) => {
             className={`dropdown-content ${dropdownOpen ? "show" : ""}`}
             onClick={closeDropdown}
           >
-            <a href="#">Edit</a>
-            <a href="#">Delete</a>
+            <a href="#">
+              <span className="material-symbols-outlined">edit</span>
+              Edit
+            </a>
+            <a href="#">
+              <span className="material-symbols-outlined">delete</span> Delete
+            </a>
           </div>
         </div>
       </div>
