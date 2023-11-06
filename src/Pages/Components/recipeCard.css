@@ -1,0 +1,28 @@
+/*by Marta*/
+.picture {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.recipeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: 1;
+}
+
+.post-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
