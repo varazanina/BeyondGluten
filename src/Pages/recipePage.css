@@ -1,3 +1,37 @@
+/*CSS by Petya*/
+.page {
+    overflow: auto; 
+    height: 84vh;
+}
+
 .ingredient {
     display: flex;
 }
+
+.position {
+    position: relative;
+}
+.text-position { /*recipe name*/
+    position: absolute;
+    bottom: 30%;
+    left: 10px;
+    color: white;
+    bottom: 10px;
+  }
+
+.text-position2 {
+    position: absolute;
+    bottom: 13%;
+    left: 10px;
+    color: white;
+}  
+
+.recipe-description {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.steps-spacing {
+    margin-top: 10px;
+}
+
