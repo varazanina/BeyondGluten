@@ -73,7 +73,7 @@
 
 .editbutton {
 display: flex;
-width: 343px;
+width: 100%;
 padding: 8px 16px;
 justify-content: center;
 align-items: center;
@@ -110,6 +110,7 @@ h5 {
   font-family: "Nunito", sans-serif;
   color: var(--black);
 }
+
 
 p {
   font-family: "Inter", sans-serif;
