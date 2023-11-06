@@ -28,14 +28,3 @@ export default function ProfilePostedRecipes  ()  {
 }
 
 
-
-/*
-
-export default function ProfilePostedRecipes () {
-  return (
-    <div className="Profilegrid">
-      <ProfileCard/>
-    </div>
-  )
-  }
-*/
