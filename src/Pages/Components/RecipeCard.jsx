@@ -35,7 +35,7 @@ export const RecipeCard = ({ recipe }) => {
               <span className="material-symbols-outlined">edit</span>
               Edit
             </a>
-            <a onClick={}>
+            <a>
               <span className="material-symbols-outlined">delete</span> Delete
             </a>
           </div>
