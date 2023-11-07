@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./recipeCard.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
@@ -18,6 +18,20 @@ export const RecipeCard = ({ recipe }) => {
     }
   };
 
+  const url = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`;
+  async function deleteRecipe () {
+      const response = await fetch(url,{
+          method: "DELETE"
+      }
+      )
+      if (response.ok) {
+          navigate("/")
+          location.reload();
+      }
+      else {
+          console.log("Something went wrong.")
+      }
+  }
   return (
     <div className="recipeCard">
       <div className="top-bar">
@@ -35,7 +49,7 @@ export const RecipeCard = ({ recipe }) => {
               <span className="material-symbols-outlined">edit</span>
               Edit
             </a>
-            <a>
+            <a onClick={deleteRecipe} >
               <span className="material-symbols-outlined">delete</span> Delete
             </a>
           </div>
