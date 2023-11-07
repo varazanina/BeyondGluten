@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import GoBack from "../assets/arrow_back.svg";
+import { Navigation } from "./Components/Navigation";
 
 export const RecipePage = () => {
   const params = useParams();
@@ -40,7 +41,10 @@ export const RecipePage = () => {
     async function getStep() {
       const response = await fetch(stepsUrl);
       const data = await response.json();
-      const stepsArray = Object.keys(data).map((key) => ({ id: key, ...data[key] }));
+      const stepsArray = Object.keys(data).map((key) => ({
+        id: key,
+        ...data[key],
+      }));
       setSteps(stepsArray);
     }
     getStep();
@@ -58,8 +62,8 @@ export const RecipePage = () => {
   };
 
   return (
-
     <div>
+      {/* 
         <Link to="/">
             <img src={GoBack} alt="Go to the previous page" className="back-btn" />
         </Link>
@@ -83,45 +87,49 @@ export const RecipePage = () => {
                     <p>{step.name}</p>
                 </div>
             ))}
-        </ul>
+        </ul>*/}
 
-    <div className="page">
-      <Link to="/">
-        <img src={GoBack} alt="Go to the previous page" />
-      </Link>
-      <div className="position">
-      <img className="picture" src={recipe.picture} alt="Recipe image" />
-      <h4 className="text-position2">{recipe.username}</h4>
-      <h1 className="text-position">{recipe.name}</h1>
-      </div>
-      <p className="recipe-description">{recipe.description}</p>
-      <h2>Ingredients</h2>
-      <ul>
-        {ingredients.map((ingredient) => (
-         // checkboxes by Petya
+      <div className="page">
+        <Navigation />
+        <Link to="/">
+          <img src={GoBack} alt="Go to the previous page" />
+        </Link>
+        <div className="position">
+          <img
+            className="picture"
+            src={recipe.picture}
+            alt="Recipe image"
+            id="food-pic"
+          />
+          <h4 className="text-position2">{recipe.username}</h4>
+          <h1 className="text-position">{recipe.name}</h1>
+        </div>
+        <p className="recipe-description">{recipe.description}</p>
+        <h2>Ingredients</h2>
+        <ul>
+          {ingredients.map((ingredient) => (
+            // checkboxes by Petya
             <div className="ingredient" key={ingredient.id}>
-            <label>
-              <input
-                type="checkbox"
-                checked={ingredient.checked}
-                onChange={() => handleIngredientClick(ingredient.id)}
-              />
-              {ingredient.name} - {ingredient.quantity}
-            </label>
-          </div>
-        ))}
-      </ul>
-      <h2 className="steps-spacing">Steps</h2>
-      <ul>
-        {steps.map((step) => (
-          <div key={step.id}>
-            <p>{step.name}</p>
-          </div>
-        ))}
-        
-      </ul>
-
+              <label>
+                <input
+                  type="checkbox"
+                  checked={ingredient.checked}
+                  onChange={() => handleIngredientClick(ingredient.id)}
+                />
+                {ingredient.name} - {ingredient.quantity}
+              </label>
+            </div>
+          ))}
+        </ul>
+        <h2 className="steps-spacing">Steps</h2>
+        <ul>
+          {steps.map((step) => (
+            <div key={step.id}>
+              <p>{step.name}</p>
+            </div>
+          ))}
+        </ul>
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
