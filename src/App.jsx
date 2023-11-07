@@ -9,7 +9,7 @@ import { RecipePage } from './Pages/RecipePage'
 function App() {
 
   return (
-    <div className='general_margin'>
+    <div>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/create' element={<CreatePage/>}/>

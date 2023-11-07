@@ -78,7 +78,7 @@ export const CreatePage = () => {
   }
 
   return (
-    <section className="page">
+    <section className="page general_margin">
       <h1 className="bigheading">Create a recipe</h1>
       {/* The create form */}
       <form onSubmit={handleSubmit}>

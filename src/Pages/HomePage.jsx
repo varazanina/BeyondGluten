@@ -18,12 +18,14 @@ export const HomePage = () => {
   return (
     <div>
       <Navigation/>
-      <h1>Following</h1>
-      <ul>
-            {recipes.map(recipe => (
-                <RecipeCard recipe={recipe} recipes={recipes} setRecipes={setRecipes} key={recipe.id} />
-            ))}
-      </ul>
+      <div className="general_margin">
+        <h1>Following</h1>
+        <ul>
+              {recipes.map(recipe => (
+                  <RecipeCard recipe={recipe} recipes={recipes} setRecipes={setRecipes} key={recipe.id} />
+              ))}
+        </ul>
+      </div>
     </div>
   )
 }

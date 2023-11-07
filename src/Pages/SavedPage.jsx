@@ -5,8 +5,10 @@ export const SavedPage = () => {
   return (
     <div>
       <Navigation/>
-      <h1>Saved Recipes</h1>
-      <NavLink to="/profile">Profile</NavLink>
+      <div className="general_margin">
+        <h1>Saved Recipes</h1>
+        <NavLink to="/profile">Profile</NavLink>
+      </div>
     </div>
   )
 }
