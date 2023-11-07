@@ -16,31 +16,24 @@ export const ProfilePage = () => {
        
       <Navigation/>
       <Themes/>
+
       <div className="ProfileHeader">
-      <Link to="/">
-            <img src={GoBack} alt="Go to the previous page" className="back-btn" />
-        </Link>
-      <h1>Profile Page</h1>
+        <Link to="/">
+              <img src={GoBack} alt="Go to the previous page" className="back-btn" />
+          </Link>
+        <h1>Profile Page</h1>
       </div>
       
       <div>
         <ProfileBio />  
       </div>
+
       <div>
         <h3 className="ProfileHeaders2">Posted Recipes</h3>
         <div>
-         <ProfilePostedRecipes/>
+          <ProfilePostedRecipes/>
         </div>
-        
       </div>
-      <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      </div>
-      
     </div>
     
   )
