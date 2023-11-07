@@ -10,7 +10,6 @@ export const UpdatePage = () => {
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
-  const [recipe, setRecipe] = useState({});
   const navigate = useNavigate();
   const params = useParams();
   const url = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${params.recipeId}.json`;
@@ -61,7 +60,6 @@ export const UpdatePage = () => {
         setIngredients(data.ingredients);
         setSteps(data.steps);
         setPicture(data.picture);
-        setRecipe(data);
       } else {
         console.log("Failed to fetch recipe data");
       }

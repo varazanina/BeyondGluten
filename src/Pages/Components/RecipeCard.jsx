@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./recipeCard.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export const RecipeCard = ({ recipe }) => {
               <span className="material-symbols-outlined">edit</span>
               Edit
             </a>
-            <a href="#">
+            <a onClick={}>
               <span className="material-symbols-outlined">delete</span> Delete
             </a>
           </div>
