@@ -52,18 +52,23 @@ export const UpdatePage = () => {
 
   useEffect(() => {
     async function getRecipe() {
-        const response = await fetch(url);
+      const response = await fetch(url);
+      if (response.ok) {
         const data = await response.json();
         console.log(data);
+        setName(data.name);
+        setDescription(data.description);
+        setIngredients(data.ingredients);
+        setSteps(data.steps);
+        setPicture(data.picture);
         setRecipe(data);
-        setName(recipe.name);
-        setDescription(recipe.description);
-        setIngredients(recipe.ingredients);
-        setSteps(recipe.steps);
-        setPicture(recipe.picture);
+      } else {
+        console.log("Failed to fetch recipe data");
+      }
     }
     getRecipe();
-    }, [recipe.name, recipe.description, recipe.picture, recipe.ingredients, recipe.steps, url]);
+  }, [url]);
+  
 
   async function updateRecipe(event) {
         event.preventDefault();
@@ -94,13 +99,12 @@ export const UpdatePage = () => {
 
   return (
     <section className="page general_margin">
-      <h1 className="bigheading">Create a recipe</h1>
-      {/* The create form */}
+      <h1 className="bigheading">Update a recipe</h1>
+      {/* The update form */}
       <form onSubmit={updateRecipe}>
         <label className="heading">Name of your dish*</label>
         <input className="textbox"
           type="text"
-          placeholder="Type name of the dish here"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
@@ -115,17 +119,15 @@ export const UpdatePage = () => {
         <label className="heading">Description*</label>
         <input className="textbox"
           type="text"
-          placeholder="Tell us more about the dish"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
-        {/*add new Ingredients by ChatGPT*/}
+        {/*add new Ingredients by ChatGPT
         <label className="heading">Ingredients</label>
         {ingredients.map((ingredient, index) => (
           <div key={index}>
             <input className="ingredients"
               type="text"
-              placeholder="Ingredient name"
               value={ingredient.name}
               onChange={(e) =>
                 handleIngredientChange(index, "name", e.target.value)
@@ -133,7 +135,6 @@ export const UpdatePage = () => {
             />
             <input className="quantity"
               type="text"
-              placeholder="Quantity"
               value={ingredient.quantity}
               onChange={(e) =>
                 handleIngredientChange(index, "quantity", e.target.value)
@@ -144,13 +145,12 @@ export const UpdatePage = () => {
         <button type="button" className="secondbutton" onClick={addIngredient}>
           Add +
         </button>
-        {/*add new steps by Marta*/}
+        {/*add new steps by Marta
         <label className="heading">Steps</label>
         {steps.map((step, index) => (
           <div key={index}>
             <input className="steps"
               type="text"
-              placeholder="Step"
               value={step.name}
               onChange={(e) => handleStepChange(index, "name", e.target.value)}
             />
@@ -158,7 +158,7 @@ export const UpdatePage = () => {
         ))}
         <button type="button" className="secondbutton" onClick={addStep}>
           Add +
-        </button>
+        </button> */}
         <button type="submit" className="primarybutton">
           Update
         </button>
