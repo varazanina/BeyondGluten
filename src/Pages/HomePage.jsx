@@ -1,5 +1,4 @@
 import { Navigation } from "./Components/Navigation";
-import { Themes } from "./Components/Themes";
 import { RecipeCard } from "./Components/RecipeCard";
 import { useState, useEffect } from "react";
 import "./HomePage.css";

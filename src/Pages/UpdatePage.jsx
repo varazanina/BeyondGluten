@@ -1,15 +1,20 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import './Create.css';
 
-//created by Marta
-export const CreatePage = () => {
+//created by Nina - on top of Create Page
+export const UpdatePage = () => {
+
   const [name, setName] = useState("");
   const [picture, setPicture] = useState("");
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
+  const [recipe, setRecipe] = useState({});
   const navigate = useNavigate();
+  const params = useParams();
+  const url = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${params.recipeId}.json`;
+  console.log(url)
 
   //cancel btn by ChatGPT
   const handleCancel = () => {
@@ -45,43 +50,53 @@ export const CreatePage = () => {
     setSteps(updatedSteps);
   };
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    console.log("Submit");
-
-    //Construction of the post in the database
-    const newPost = {
-      name: name,
-      picture: picture,
-      description: description,
-      ingredients: ingredients,
-      steps: steps,
-      username: "glutenhater",
-    };
-    console.log(newPost);
-
-    //link to firebase
-    const url =
-      "https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes.json";
-
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(newPost),
-    });
-
-    //Got to homepage after posting
-    if (response.ok) {
-      navigate("/");
-    } else {
-      console.log("Something went wrong");
+  useEffect(() => {
+    async function getRecipe() {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        setRecipe(data);
+        setName(recipe.name);
+        setDescription(recipe.description);
+        setIngredients(recipe.ingredients);
+        setSteps(recipe.steps);
+        setPicture(recipe.picture);
     }
-  }
+    getRecipe();
+    }, [recipe.name, recipe.description, recipe.picture, recipe.ingredients, recipe.steps, url]);
+
+  async function updateRecipe(event) {
+        event.preventDefault();
+
+        //Construction of the post in the database
+        const recipeToUpdate = {
+        name: name,
+        picture: picture,
+        description: description,
+        ingredients: ingredients,
+        steps: steps,
+        username: "glutenhater",
+        };
+        console.log(recipeToUpdate);
+
+        const response = await fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(recipeToUpdate),
+        });
+
+        //Got to homepage after posting
+        if (response.ok) {
+        navigate("/");
+        } else {
+        console.log("Something went wrong");
+        }
+    }
 
   return (
     <section className="page general_margin">
       <h1 className="bigheading">Create a recipe</h1>
       {/* The create form */}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={updateRecipe}>
         <label className="heading">Name of your dish*</label>
         <input className="textbox"
           type="text"
@@ -145,7 +160,7 @@ export const CreatePage = () => {
           Add +
         </button>
         <button type="submit" className="primarybutton">
-          Create
+          Update
         </button>
         <button
           type="button"

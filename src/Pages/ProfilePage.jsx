@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom"
 import { Navigation } from "./Components/Navigation";
 import { Themes } from "./Components/Themes";
 import ProfileBio from "./Components/ProfileBio";
