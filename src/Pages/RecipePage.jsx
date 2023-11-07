@@ -44,7 +44,7 @@ export const RecipePage = () => {
         }, [ingredientsUrl, stepsUrl]);
 
   return (
-    <div>
+    <div className="general_margin">
         <Link to="/">
             <img src={GoBack} alt="Go to the previous page" />
         </Link>
