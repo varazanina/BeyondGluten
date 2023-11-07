@@ -11,6 +11,7 @@
 .FollowingHeader {
   display: grid;
   grid-template-columns: 1fr auto;
+  padding: 15px 0;
  
 }
 

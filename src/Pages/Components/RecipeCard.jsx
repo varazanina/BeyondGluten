@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./recipeCard.css";
 import { useNavigate } from "react-router-dom";
+import UserPic from "./UserPic";
 
 export const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ export const RecipeCard = ({ recipe }) => {
   return (
     <div className="recipeCard">
       <div className="top-bar">
+      <UserPic/>
         <p>{recipe.username}</p>
         {/*Drop down menu by Marta & ChatGPT*/}
         <div className="dropdown">
