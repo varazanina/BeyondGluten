@@ -30,9 +30,8 @@ export const RecipeCard = ({ recipe }) => {
           <div
             id="myDropdown"
             className={`dropdown-content ${dropdownOpen ? "show" : ""}`}
-            onClick={closeDropdown}
           >
-            <a href="#">
+            <a onClick={() => navigate(`/update/${recipe.id}`)}>
               <span className="material-symbols-outlined">edit</span>
               Edit
             </a>
