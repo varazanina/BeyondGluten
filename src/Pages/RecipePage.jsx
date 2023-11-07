@@ -122,5 +122,6 @@ export const RecipePage = () => {
       </ul>
 
     </div>
-  );
-};
+    </div>
+  )
+}
