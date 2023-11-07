@@ -1,5 +1,5 @@
 .page {
-  margin-bottom: 10vh;
+  margin-bottom: 11vh;
 }
 
 .UserPic {
@@ -12,7 +12,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   padding: 15px 0;
- 
+
 }
 
 .FollowingHeader h2 {

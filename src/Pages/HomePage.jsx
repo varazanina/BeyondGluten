@@ -1,4 +1,3 @@
-
 import { Navigation } from "./Components/Navigation";
 import { Themes } from "./Components/Themes";
 import { RecipeCard } from "./Components/RecipeCard";
@@ -8,41 +7,39 @@ import UserPic from "./Components/UserPic";
 
 export const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
-    useEffect(() => {
-        async function getRecipe() {
-            const url =
+  useEffect(() => {
+    async function getRecipe() {
+      const url =
         "https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes.json";
-            const response = await fetch(url);
-            const data = await response.json();
-            const recipesArray = Object.keys(data).map((key) => ({
+      const response = await fetch(url);
+      const data = await response.json();
+      const recipesArray = Object.keys(data).map((key) => ({
         id: key,
         ...data[key],
       }));
-            setRecipes(recipesArray);
-        }
-        getRecipe();
-    }, []);
+      setRecipes(recipesArray);
+    }
+    getRecipe();
+  }, []);
 
   return (
     <div className="page">
       <Navigation />
-      <Themes />
       <div className="FollowingHeader">
-        
         <h2>Following</h2>
-        <UserPic/>
+        <UserPic />
       </div>
-      
+
       <ul>
-            {recipes.map((recipe) => (
-                <RecipeCard
+        {recipes.map((recipe) => (
+          <RecipeCard
             recipe={recipe}
             recipes={recipes}
             setRecipes={setRecipes}
             key={recipe.id}
           />
-            ))}
-        </ul>
+        ))}
+      </ul>
     </div>
   );
 };
