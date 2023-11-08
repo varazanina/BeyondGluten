@@ -29,11 +29,12 @@ export const HomePage = () => {
   return (
     <div className="page">
       <Navigation />
-      <div className="FollowingHeader">
-        <h2>Following</h2>
-        <UserPic />
-      </div>
-
+      {/*Post header created by Vivian*/}
+          <div className="FollowingHeader">
+            <h2>Following</h2>
+            <UserPic />
+          </div>
+ 
       <ul>
         {recipes.map((recipe) => (
           <RecipeCard
