@@ -22,7 +22,7 @@
 
 .primarybutton {
   border-radius: 16px;
-  background: var(--wine-primary, #823038);
+  background: var(--primary);
   display: flex;
   width: 167px;
   height: 36px;
@@ -33,7 +33,7 @@
   border: none;
 
   /* body text/big bold */
-  color: var(--base-white, #fff);
+  color: var(--white);
   text-align: center;
 
   font-family: "Inter", sans-serif;
@@ -47,7 +47,7 @@
 
 .secondarybutton {
   border-radius: 16px;
-  background: var(--wine-primary, #823038);
+  background: var(--primary);
   display: flex;
   width: 167px;
   height: 36px;
@@ -58,10 +58,10 @@
   border: none;
 
   border-radius: 16px;
-  background: var(--wine-secondary, #f4e1e3);
+  background: var(--secondary);
 
   /* body text/big bold */
-  color: var(--wine-primary, #823038);
+  color: var(--primary);
   text-align: center;
 
   font-family: "Inter", sans-serif;
@@ -83,10 +83,10 @@
   margin: 20px auto;
 
   border-radius: 16px;
-  border: 2px solid var(--wine-primary, #823038);
-  background: var(--base-white, #fff);
+  border: 2px solid var(--primary);
+  background: var(--white);
 
-  color: var(--wine-primary, #823038);
+  color: var(--primary);
   text-align: center;
 
   /* body text/big bold */
