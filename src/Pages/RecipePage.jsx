@@ -91,9 +91,6 @@ export const RecipePage = () => {
 
       <div className="page">
         <Navigation />
-        <Link to="/">
-          <img src={GoBack} alt="Go to the previous page" />
-        </Link>
         <div className="position">
           <img
             className="picture"
@@ -101,6 +98,9 @@ export const RecipePage = () => {
             alt="Recipe image"
             id="food-pic"
           />
+          <Link to="/">
+          <img src={GoBack} alt="Go to the previous page" className="back-btn-recipe"/>
+        </Link>
           <h4 className="text-position2">{recipe.username}</h4>
           <h1 className="text-position">{recipe.name}</h1>
         </div>

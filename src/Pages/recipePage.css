@@ -41,3 +41,9 @@
 #food-pic {
   filter: brightness(0.8);
 }
+
+.back-btn-recipe {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
