@@ -6,6 +6,7 @@ import { SavedPage } from './Pages/SavedPage'
 import { ProfilePage } from './Pages/ProfilePage'
 import { RecipePage } from './Pages/RecipePage'
 import { UpdatePage } from './Pages/UpdatePage'
+import ErrorPage from './Pages/ErrorPage'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/create' element={<CreatePage/>}/>
-        <Route path='/saved' element={<SavedPage/>}/>
+        <Route path='/saved' element={<ErrorPage/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
         <Route path='/recipes/:recipeId' element={<RecipePage/>}/>
         <Route path='/update/:recipeId' element={<UpdatePage/>}/>
