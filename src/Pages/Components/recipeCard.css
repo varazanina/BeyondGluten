@@ -24,6 +24,8 @@
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
+  height: 54px;
+  margin-bottom: 5px;
 }
 
 .top-bar p {
