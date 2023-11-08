@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 //created by Nina, fetching Recipe Object and its key values from Firebase and displaying them in a list
 export default function ProfilePostedRecipes  ()  {
+
   const [recipes, setRecipes] = useState([]);
     useEffect (() => {
         async function getRecipe() {
@@ -18,7 +19,7 @@ export default function ProfilePostedRecipes  ()  {
   return (
     <div>
       
-      <div className="RecipeGrid" onClick={() => navigate(`/recipes/${recipe.id}`)}>
+      <div className="RecipeGrid">
             {recipes.map(recipe => (
                 <ProfileRecipeCard recipe={recipe} recipes={recipes} setRecipes={setRecipes} key={recipe.id} />
             ))}
