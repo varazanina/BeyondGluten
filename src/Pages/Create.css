@@ -19,6 +19,10 @@ margin-bottom: 32px;
 border: none;
 }
 
+.picture_preview {
+    width: 100%;
+}
+
 .bigheading {
 color: var(--black);
 /* Page Header */
