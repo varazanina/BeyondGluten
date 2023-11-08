@@ -96,7 +96,7 @@ export const CreatePage = () => {
           value={picture}
           onChange={(event) => setPicture(event.target.value)}
         />
-        <img src={picture} alt="" />
+        <img className="picture_preview" src={picture} alt="Preview of the picture" />
         <label className="heading">Description*</label>
         <input className="textbox"
           type="text"

@@ -37,6 +37,11 @@
   margin-top: 10px;
 }
 
+.recipe_margin {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 /*Picture overlay by Marta*/
 #food-pic {
   filter: brightness(0.8);

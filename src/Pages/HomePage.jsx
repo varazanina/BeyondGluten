@@ -5,6 +5,9 @@ import "./HomePage.css";
 import UserPic from "./Components/UserPic";
 
 export const HomePage = () => {
+
+  // Created by Nina - GET as part of the CRUD
+
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
     async function getRecipe() {
@@ -12,6 +15,8 @@ export const HomePage = () => {
         "https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes.json";
       const response = await fetch(url);
       const data = await response.json();
+
+      // putting recipes to an array
       const recipesArray = Object.keys(data).map((key) => ({
         id: key,
         ...data[key],
@@ -32,6 +37,8 @@ export const HomePage = () => {
       <ul>
         {recipes.map((recipe) => (
           <RecipeCard
+
+            // defining props
             recipe={recipe}
             recipes={recipes}
             setRecipes={setRecipes}

@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import UserPic from "./UserPic";
 
 export const RecipeCard = ({ recipe }) => {
+
+  // Made by Nina
+
   const navigate = useNavigate();
 
   /*Drop down menu by Marta & ChatGPT*/
@@ -51,6 +54,8 @@ export const RecipeCard = ({ recipe }) => {
           </div>
         </div>
       </div>
+
+      {/* Getting data based on recipe prop */}
       <img
         className="picture"
         src={recipe.picture}
