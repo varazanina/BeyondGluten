@@ -6,6 +6,10 @@ import GoBack from "../assets/arrow_back.svg";
 import { Navigation } from "./Components/Navigation";
 
 export const RecipePage = () => {
+
+  // Created by Nina - this page shows the whole overview of one recipe
+
+  // getting the id of a recipe with params
   const params = useParams();
   const url = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${params.recipeId}.json`;
   const ingredientsUrl = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${params.recipeId}/ingredients.json`;
@@ -26,13 +30,15 @@ export const RecipePage = () => {
   const [steps, setSteps] = useState([]);
 
   useEffect(() => {
+
+    // putting the ingredients and steps into arrays
     async function getIngredient() {
       const response = await fetch(ingredientsUrl);
       const data = await response.json();
       const ingredientsArray = Object.keys(data).map((key) => ({
         id: key,
         ...data[key],
-        checked: false, // Add a 'checked' property to each ingredient
+        checked: false,
       }));
       setIngredients(ingredientsArray);
     }
