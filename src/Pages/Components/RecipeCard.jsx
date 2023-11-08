@@ -13,12 +13,6 @@ export const RecipeCard = ({ recipe }) => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  const closeDropdown = (event) => {
-    if (!event.target.matches(".dropbtn")) {
-      setDropdownOpen(false);
-    }
-  };
-
   const url = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`;
   async function deleteRecipe () {
       const response = await fetch(url,{
