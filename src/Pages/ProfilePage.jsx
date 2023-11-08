@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 
 
-//created by Vivian
+//created by Vivian, calling ProfileBio and ProfilePostedRecipes Sections
 export const ProfilePage = () => {
   return (
     <div >
@@ -37,4 +37,3 @@ export const ProfilePage = () => {
     
   )
 }
-//calling ProfileBio and ProfilePostedRecipes Sections
