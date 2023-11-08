@@ -19,6 +19,20 @@ export const RecipeCard = ({ recipe }) => {
     }
   };
 
+  const url = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`;
+  async function deleteRecipe () {
+      const response = await fetch(url,{
+          method: "DELETE"
+      }
+      )
+      if (response.ok) {
+          navigate("/")
+          location.reload();
+      }
+      else {
+          console.log("Something went wrong.")
+      }
+  }
   return (
     <div className="recipeCard">
       <div className="top-bar">
@@ -32,13 +46,12 @@ export const RecipeCard = ({ recipe }) => {
           <div
             id="myDropdown"
             className={`dropdown-content ${dropdownOpen ? "show" : ""}`}
-            onClick={closeDropdown}
           >
-            <a href="#">
+            <a onClick={() => navigate(`/update/${recipe.id}`)}>
               <span className="material-symbols-outlined">edit</span>
               Edit
             </a>
-            <a href="#">
+            <a onClick={deleteRecipe} >
               <span className="material-symbols-outlined">delete</span> Delete
             </a>
           </div>
