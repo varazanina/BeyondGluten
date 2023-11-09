@@ -81,7 +81,11 @@ export const RecipePage = () => {
           <Link to="/">
           <img src={GoBack} alt="Go to the previous page" className="back-btn-recipe"/>
         </Link>
-          <h4 className="text-position2">{recipe.username}</h4>
+
+        {/* done by Petya */}
+        <h4 className="text-position2">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=1743&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Profile Picture" className="ProfilePic"></img>  
+            {recipe.username}</h4>
           <h1 className="text-position">{recipe.name}</h1>
         </div>
         <div className="recipe_margin">
@@ -91,12 +95,14 @@ export const RecipePage = () => {
           {ingredients.map((ingredient) => (
             // checkboxes by Petya
             <div className="ingredient" key={ingredient.id}>
-              <label>
+              <label className="custom-checkbox-label">
                 <input
                   type="checkbox"
                   checked={ingredient.checked}
                   onChange={() => handleIngredientClick(ingredient.id)}
+                  className="custom-checkbox-input"
                 />
+                <span className="custom-checkbox"></span>
                 {ingredient.name} - {ingredient.quantity}
               </label>
             </div>
