@@ -25,11 +25,11 @@ export const UpdatePage = () => {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        setName(data.name);
-        setDescription(data.description);
-        setIngredients(data.ingredients);
-        setSteps(data.steps);
-        setPicture(data.picture);
+        setName(data?.name);
+        setDescription(data?.description);
+        setIngredients(data?.ingredients);
+        setSteps(data?.steps);
+        setPicture(data?.picture);
       } else {
         console.log("Failed to fetch recipe data");
       }

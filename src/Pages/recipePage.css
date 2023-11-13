@@ -3,6 +3,9 @@
   overflow: auto;
   /*height: 84vh;*/
   margin-bottom: 11vh;
+  /*display: flex;
+  justify-content: space-between;
+  align-items: center;*/
 }
 
 .ingredient {
@@ -47,8 +50,30 @@
   filter: brightness(0.8);
 }
 
+/*
 .back-btn-recipe {
   position: absolute;
   top: 10px;
   left: 10px;
+}*/
+
+.RecipeHeader {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: grid;
+  grid-template-columns: 1fr 330px 1fr;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center; /* Center items vertically within the dropdown container */
+}
+
+
+.dropbtn {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  /* Add other styling properties as needed */
 }
