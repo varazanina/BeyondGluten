@@ -24,7 +24,7 @@
   border-radius: 16px;
   background: var(--primary);
   display: flex;
-  width: 167px;
+  width: 167px !important;
   height: 36px;
   padding: 8px 16px;
   justify-content: center;
@@ -49,7 +49,7 @@
   border-radius: 16px;
   background: var(--primary);
   display: flex;
-  width: 167px;
+  width: 167px !important;
   height: 36px;
   padding: 8px 16px;
   justify-content: center;

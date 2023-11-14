@@ -16,6 +16,16 @@ export const RecipeCard = ({ recipe }) => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const [isPopupOpen, setPopupOpen] = useState(false);
+
+  const openPopup = () => {
+    setPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setPopupOpen(false);
+  };
+
   const url = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`;
   async function deleteRecipe () {
       const response = await fetch(url,{
@@ -32,6 +42,18 @@ export const RecipeCard = ({ recipe }) => {
   }
   return (
     <div className="recipeCard">
+      {/* Pop up overlay by Nina */}
+      {isPopupOpen && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <p>Are you sure you want to delete the recipe?</p>
+            <div className="buttons">
+              <button className="secondarybutton" onClick={closePopup}>Cancel</button>
+              <button className="primarybutton" onClick={deleteRecipe}>Delete</button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="top-bar">
       <UserPic/>
         <p>{recipe.username}</p>
@@ -48,7 +70,7 @@ export const RecipeCard = ({ recipe }) => {
               <span className="material-symbols-outlined">edit</span>
               Edit
             </a>
-            <a onClick={deleteRecipe} >
+            <a onClick={openPopup} >
               <span className="material-symbols-outlined">delete</span> Delete
             </a>
           </div>
