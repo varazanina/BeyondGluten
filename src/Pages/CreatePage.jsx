@@ -2,10 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Create.css';
 
+import Remove from "../assets/remove.svg";
+
 //created by Marta
 export const CreatePage = () => {
   const [name, setName] = useState("");
   const [picture, setPicture] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
@@ -15,6 +18,24 @@ export const CreatePage = () => {
   const handleCancel = () => {
     navigate(-1); // This navigates back one step in the browser history
   };
+
+  // picture appload by Nina
+  function handlePictureChange(event) {
+    const file = event.target.files[0];
+    if (file.size < 500000) {
+        // image file size must be below 0,5MB
+        const reader = new FileReader();
+        reader.onload = event => {
+            setPicture(event.target.result);
+        };
+        reader.readAsDataURL(file);
+        setErrorMessage(""); // reset errorMessage state
+    } else {
+        // if not below 0.5MB display an error message using the errorMessage state
+        setErrorMessage("The image file is too big!");
+        console.log(errorMessage);
+    }
+  }
 
   //add Ingredients by ChatGPT
   const addIngredient = () => {
@@ -44,6 +65,20 @@ export const CreatePage = () => {
     updatedSteps[index][field] = value;
     setSteps(updatedSteps);
   };
+
+  // Remove steps and ingredients by Nina
+  
+  function removeIngredient(index) {
+    const updatedIngredients = [...ingredients];
+    updatedIngredients.splice(index, 1);
+    setIngredients(updatedIngredients);
+  }
+
+  function removeStep(index) {
+    const updatedSteps = [...steps];
+    updatedSteps.splice(index, 1);
+    setSteps(updatedSteps);
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -90,13 +125,12 @@ export const CreatePage = () => {
           onChange={(event) => setName(event.target.value)}
         />
         <label className="heading">Image</label>
-        <input className="textbox"
-          type="url"
-          placeholder="Paste picture url"
-          value={picture}
-          onChange={(event) => setPicture(event.target.value)}
+        <input className="file-input"
+          type="file"
+          accept="image/*"
+          onChange={handlePictureChange}
         />
-        <img className="picture_preview" src={picture} alt="Preview of the picture" />
+        <img className="picture_preview" src={picture} alt="Choose" />
         <label className="heading">Description*</label>
         <input className="textbox"
           type="text"
@@ -124,6 +158,9 @@ export const CreatePage = () => {
                 handleIngredientChange(index, "quantity", e.target.value)
               }
             />
+            <button type="button" onClick={() => removeIngredient(index)}>
+              <img src={ Remove } alt="remove ingredient" />
+            </button>
           </div>
         ))}
         <button type="button" className="secondbutton" onClick={addIngredient}>
@@ -139,6 +176,9 @@ export const CreatePage = () => {
               value={step.name}
               onChange={(e) => handleStepChange(index, "name", e.target.value)}
             />
+            <button type="button" onClick={() => removeStep(index)}>
+              <img src={ Remove } alt="remove step" />
+            </button>
           </div>
         ))}
         <button type="button" className="secondbutton" onClick={addStep}>

@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import './Create.css';
 
+import Remove from "../assets/remove.svg";
+
 // Created by Nina - on top of Create Page - PUT as part of the CRUD
 
 export const UpdatePage = () => {
 
   const [name, setName] = useState("");
   const [picture, setPicture] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
@@ -19,6 +22,67 @@ export const UpdatePage = () => {
   const handleCancel = () => {
     navigate(-1); // This navigates back one step in the browser history
   };
+
+    // picture appload by Nina
+    function handlePictureChange(event) {
+      const file = event.target.files[0];
+      if (file.size < 500000) {
+          // image file size must be below 0,5MB
+          const reader = new FileReader();
+          reader.onload = event => {
+              setPicture(event.target.result);
+          };
+          reader.readAsDataURL(file);
+          setErrorMessage(""); // reset errorMessage state
+      } else {
+          // if not below 0.5MB display an error message using the errorMessage state
+          setErrorMessage("The image file is too big!");
+          console.log(errorMessage);
+      }
+    }
+
+     //add Ingredients by ChatGPT
+  const addIngredient = () => {
+    const newIngredient = {
+      name: "",
+      quantity: "",
+    };
+    setIngredients([...ingredients, newIngredient]);
+  };
+
+  const handleIngredientChange = (index, field, value) => {
+    const updatedIngredients = [...ingredients];
+    updatedIngredients[index][field] = value;
+    setIngredients(updatedIngredients);
+  };
+
+  //add steps by Marta
+  const addStep = () => {
+    const newStep = {
+      name: "",
+    };
+    setSteps([...steps, newStep]);
+  };
+
+  const handleStepChange = (index, field, value) => {
+    const updatedSteps = [...steps];
+    updatedSteps[index][field] = value;
+    setSteps(updatedSteps);
+  };
+
+    // Remove steps and ingredients by Nina
+  
+    function removeIngredient(index) {
+      const updatedIngredients = [...ingredients];
+      updatedIngredients.splice(index, 1);
+      setIngredients(updatedIngredients);
+    }
+  
+    function removeStep(index) {
+      const updatedSteps = [...steps];
+      updatedSteps.splice(index, 1);
+      setSteps(updatedSteps);
+    }
 
   useEffect(() => {
     async function getRecipe() {
@@ -76,19 +140,64 @@ export const UpdatePage = () => {
           onChange={(event) => setName(event.target.value)}
         />
         <label className="heading">Image</label>
-        <input className="textbox"
-          type="url"
-          placeholder="Paste picture url"
-          value={picture}
-          onChange={(event) => setPicture(event.target.value)}
+        <input className="file-input"
+          type="file"
+          accept="image/*"
+          onChange={handlePictureChange}
         />
-        <img className="picture_preview" src={picture} alt="Preview of the picture" />
+        <img className="picture_preview" src={picture} alt="Choose" />
         <label className="heading">Description*</label>
         <input className="textbox"
           type="text"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
+        {/*add new Ingredients by ChatGPT*/}
+        <label className="heading">Ingredients</label>
+        {ingredients.map((ingredient, index) => (
+          <div key={index}>
+            <input className="ingredients"
+              type="text"
+              placeholder="Ingredient name"
+              value={ingredient.name}
+              onChange={(e) =>
+                handleIngredientChange(index, "name", e.target.value)
+              }
+            />
+            <input className="quantity"
+              type="text"
+              placeholder="Quantity"
+              value={ingredient.quantity}
+              onChange={(e) =>
+                handleIngredientChange(index, "quantity", e.target.value)
+              }
+            />
+            <button type="button" onClick={() => removeIngredient(index)}>
+              <img src={ Remove } alt="remove ingredient" />
+            </button>
+          </div>
+        ))}
+        <button type="button" className="secondbutton" onClick={addIngredient}>
+          Add +
+        </button>
+        {/*add new steps by Marta*/}
+        <label className="heading">Steps</label>
+        {steps.map((step, index) => (
+          <div key={index}>
+            <input className="steps"
+              type="text"
+              placeholder="Step"
+              value={step.name}
+              onChange={(e) => handleStepChange(index, "name", e.target.value)}
+            />
+            <button type="button" onClick={() => removeStep(index)}>
+              <img src={ Remove } alt="remove step" />
+            </button>
+          </div>
+        ))}
+        <button type="button" className="secondbutton" onClick={addStep}>
+          Add +
+        </button>
         <button type="submit" className="primarybutton">
           Update
         </button>
