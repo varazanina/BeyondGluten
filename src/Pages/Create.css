@@ -60,6 +60,20 @@ background: var(--light_gray);
 border: none;
 }
 
+.substitutes, .ing {
+    width: 120px;
+    height: 40px;
+    padding: 0px 15px;
+    align-items: center;
+    gap: 8px;
+    margin-right: 8px;
+    margin-top: 8px;
+    
+    border-radius: 16px;
+    background: var(--light_gray);
+    border: none;
+    }
+
 .quantity {
 width: 79px;
 height: 40px;
