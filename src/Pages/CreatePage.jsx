@@ -83,7 +83,7 @@ export const CreatePage = () => {
     setSteps(updatedSteps);
   };
 
-  // Remove steps and ingredients by Nina
+  // Remove steps, substitutes and ingredients by Nina
 
   function removeIngredient(index) {
     const updatedIngredients = [...ingredients];

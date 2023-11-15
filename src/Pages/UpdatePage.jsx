@@ -13,6 +13,7 @@ export const UpdatePage = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
+  const [substitutes, setSubstitutes] = useState([]);
   const [steps, setSteps] = useState([]);
   const navigate = useNavigate();
   const params = useParams();
@@ -56,6 +57,22 @@ export const UpdatePage = () => {
     setIngredients(updatedIngredients);
   };
 
+    //add Substitutes by Nina
+    const addSubstitute = () => {
+      const newSubstitute = {
+        ing: "",
+        name: "",
+        quantity: "",
+      };
+      setSubstitutes([...substitutes, newSubstitute]);
+    };
+  
+    const handleSubstituteChange = (index, field, value) => {
+      const updatedSubstitutes = [...substitutes];
+      updatedSubstitutes[index][field] = value;
+      setSubstitutes(updatedSubstitutes);
+    };
+
   //add steps by Marta
   const addStep = () => {
     const newStep = {
@@ -70,12 +87,18 @@ export const UpdatePage = () => {
     setSteps(updatedSteps);
   };
 
-    // Remove steps and ingredients by Nina
+    // Remove steps, substitutes and ingredients by Nina
   
     function removeIngredient(index) {
       const updatedIngredients = [...ingredients];
       updatedIngredients.splice(index, 1);
       setIngredients(updatedIngredients);
+    }
+
+    function removeSubstitute(index) {
+      const updatedSubstitutes = [...substitutes];
+      updatedSubstitutes.splice(index, 1);
+      setSubstitutes(updatedSubstitutes);
     }
   
     function removeStep(index) {
@@ -92,6 +115,7 @@ export const UpdatePage = () => {
         setName(data.name);
         setDescription(data.description);
         setIngredients(data.ingredients);
+        setSubstitutes(data.substitutes)
         setSteps(data.steps);
         setPicture(data.picture);
       } else {
@@ -110,6 +134,7 @@ export const UpdatePage = () => {
         picture: picture,
         description: description,
         ingredients: ingredients,
+        substitutes: substitutes,
         steps: steps,
         username: "glutenhater",
         };
@@ -178,6 +203,42 @@ export const UpdatePage = () => {
           </div>
         ))}
         <button type="button" className="secondbutton" onClick={addIngredient}>
+          Add +
+        </button>
+        {/* Substitutes by Nina */}
+        <label className="heading">Substitudes</label>
+        {substitutes.map((substitute, index) => (
+          <div key={index}>
+            <input className="ing"
+              type="text"
+              placeholder="Ingredient"
+              value={substitute.ing}
+              onChange={(e) =>
+                handleSubstituteChange(index, "ing", e.target.value)
+              }
+            />
+            <input className="substitutes"
+              type="text"
+              placeholder="Substitute name"
+              value={substitute.name}
+              onChange={(e) =>
+                handleSubstituteChange(index, "name", e.target.value)
+              }
+            />
+            <input className="quantity"
+              type="text"
+              placeholder="Quantity"
+              value={substitute.quantity}
+              onChange={(e) =>
+                handleSubstituteChange(index, "quantity", e.target.value)
+              }
+            />
+            <button type="button" onClick={() => removeSubstitute(index)}>
+              <img src={ Remove } alt="remove ingredient" />
+            </button>
+          </div>
+        ))}
+        <button type="button" className="secondbutton" onClick={addSubstitute}>
           Add +
         </button>
         {/*add new steps by Marta*/}

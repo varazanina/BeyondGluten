@@ -32,6 +32,10 @@ export const RecipePage = () => {
   const [substitutes, setSubstitutes] = useState([]);
   const [steps, setSteps] = useState([]);
 
+  const [showSubstituteInfo, setShowSubstituteInfo] = useState(false);
+  const [substituteInfo, setSubstituteInfo] = useState({});
+
+
   useEffect(() => {
 
     // putting the ingredients and steps into arrays
@@ -69,6 +73,13 @@ export const RecipePage = () => {
     }
     getStep();
   }, [ingredientsUrl, subsUrl, stepsUrl]);
+
+  // Function to toggle between showing ingredient and substitute info
+  const switchIngredient = (substitute) => {
+    setShowSubstituteInfo(!showSubstituteInfo);
+    setSubstituteInfo(substitute);
+  };
+
 
   // Function to toggle the checked status of an ingredient
   const handleIngredientClick = (ingredientId) => {
@@ -119,8 +130,16 @@ export const RecipePage = () => {
                 <span className="custom-checkbox"></span>
                 {ingredient.name} - {ingredient.quantity}
                 {substitutes.map((substitute) => substitute.ing === ingredient.name && (
-                  <img key={substitute.id} src={Sub} alt="change substitute" />
-                ))}
+              <img 
+                key={substitute.id} 
+                src={Sub} 
+                alt="change substitute" 
+                onClick={() => switchIngredient(substitute)} 
+              />
+            ))}
+            {showSubstituteInfo && substituteInfo.ing === ingredient.name && (
+              <span>Substitute: {substituteInfo.name}, Quantity: {substituteInfo.quantity}</span>
+            )}
               </label>
             </div>
           ))}
