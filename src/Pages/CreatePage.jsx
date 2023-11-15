@@ -113,7 +113,7 @@ export const CreatePage = () => {
       picture: picture,
       description: description,
       ingredients: ingredients,
-      sustitutes: substitutes,
+      substitutes: substitutes,
       steps: steps,
       username: "glutenhater",
     };

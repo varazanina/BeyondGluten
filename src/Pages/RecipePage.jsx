@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import GoBack from "../assets/arrow_back.svg";
+import Sub from "../assets/sub.svg";
 import { Navigation } from "./Components/Navigation";
 
 export const RecipePage = () => {
@@ -13,6 +14,7 @@ export const RecipePage = () => {
   const params = useParams();
   const url = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${params.recipeId}.json`;
   const ingredientsUrl = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${params.recipeId}/ingredients.json`;
+  const subsUrl = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${params.recipeId}/substitutes.json`;
   const stepsUrl = `https://beyond-gluten-default-rtdb.europe-west1.firebasedatabase.app/recipes/${params.recipeId}/steps.json`;
 
   const [recipe, setRecipe] = useState({});
@@ -27,6 +29,7 @@ export const RecipePage = () => {
   }, [url]);
 
   const [ingredients, setIngredients] = useState([]);
+  const [substitutes, setSubstitutes] = useState([]);
   const [steps, setSteps] = useState([]);
 
   useEffect(() => {
@@ -44,6 +47,17 @@ export const RecipePage = () => {
     }
     getIngredient();
 
+    async function getSubstitute() {
+      const response = await fetch(subsUrl);
+      const data = await response.json();
+      const substitutesArray = Object.keys(data).map((key) => ({
+        id: key,
+        ...data[key],
+      }));
+      setSubstitutes(substitutesArray);
+    }
+    getSubstitute();
+
     async function getStep() {
       const response = await fetch(stepsUrl);
       const data = await response.json();
@@ -54,7 +68,7 @@ export const RecipePage = () => {
       setSteps(stepsArray);
     }
     getStep();
-  }, [ingredientsUrl, stepsUrl]);
+  }, [ingredientsUrl, subsUrl, stepsUrl]);
 
   // Function to toggle the checked status of an ingredient
   const handleIngredientClick = (ingredientId) => {
@@ -104,6 +118,9 @@ export const RecipePage = () => {
                 />
                 <span className="custom-checkbox"></span>
                 {ingredient.name} - {ingredient.quantity}
+                {substitutes.map((substitute) => substitute.ing === ingredient.name && (
+                  <img key={substitute.id} src={Sub} alt="change substitute" />
+                ))}
               </label>
             </div>
           ))}
